@@ -1,0 +1,177 @@
+/* index.css — must be first line in the file */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BraiinIt Design System - Black, Teal Blue & White Theme */
+
+
+@layer base {
+  :root {
+    /* Core theme colors */
+    --background: 220 13% 6%; /* Deep dark background */
+    --foreground: 0 0% 98%; /* Pure white text */
+
+    /* Card components */
+    --card: 220 13% 8%; /* Slightly lighter dark cards */
+    --card-foreground: 0 0% 98%;
+
+    /* Popover components */
+    --popover: 220 13% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary brand colors - Glowing Cyan Blue */
+    --primary: 180 100% 50%; /* Bright cyan blue #00FFFF */
+    --primary-foreground: 0 0% 10%; /* Dark text on bright background */
+    --primary-glow: 180 100% 60%; /* Lighter cyan blue for glow effects */
+
+    /* Secondary colors */
+    --secondary: 220 13% 12%; /* Dark gray for secondary elements */
+    --secondary-foreground: 0 0% 90%;
+
+    /* Muted colors */
+    --muted: 220 13% 10%;
+    --muted-foreground: 0 0% 65%;
+
+    /* Accent colors */
+    --accent: 180 100% 50%; /* Same as primary */
+    --accent-foreground: 0 0% 10%;
+
+    /* Status colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* UI elements */
+    --border: 220 13% 15%; /* Subtle dark borders */
+    --input: 220 13% 12%; /* Dark input backgrounds */
+    --ring: 180 100% 50%; /* Glowing cyan blue focus rings */
+
+    /* Design system tokens */
+    --radius: 0.75rem;
+    
+    /* Custom gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(220 13% 8%));
+    --gradient-teal: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(220 13% 4%));
+    
+    /* Shadows with glowing cyan blue */
+    --shadow-teal: 0 10px 30px -10px hsl(var(--primary) / 0.4);
+    --shadow-teal-strong: 0 0 40px hsl(var(--primary) / 0.6), 0 0 80px hsl(var(--primary-glow) / 0.3);
+    --shadow-card: 0 4px 20px hsl(220 13% 2% / 0.5);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Typography scale */
+    --font-hero: 4.5rem;
+    --font-heading: 2.5rem;
+    --font-subheading: 1.25rem;
+
+    /* Sidebar components */
+    --sidebar-background: 220 13% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 220 13% 12%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 220 13% 15%;
+    --sidebar-ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(var(--primary) / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--primary-glow) / 0.05) 0%, transparent 50%);
+  }
+
+  /* Smooth scrolling */
+  html {
+    font-family: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+  }
+}
+
+@layer components {
+  /* Hero typography styles */
+  .text-hero {
+    font-size: var(--font-hero);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-heading {
+    font-size: var(--font-heading);
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  
+  /* Glow effects */
+  .glow-teal {
+    box-shadow: var(--shadow-teal);
+  }
+  
+  .glow-teal-strong {
+    box-shadow: var(--shadow-teal-strong);
+  }
+  
+  /* Gradient backgrounds */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-teal {
+    background: var(--gradient-teal);
+  }
+  
+  .bg-gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+  
+  /* Animation utilities */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Grid pattern overlay */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.3;
+  }
+}
