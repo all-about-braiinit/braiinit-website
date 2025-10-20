@@ -4,73 +4,140 @@ import { ContactForm } from "./ContactForm";
 
 export const Footer = () => {
   return (
-    <footer className="bg-card border-t border-border py-16">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Brand */}
+    <footer id="footer" className="relative border-t border-border bg-gradient-subtle">
+      {/* Compact vertical padding via clamp to stay thin across breakpoints */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-[clamp(1.25rem,2.5vw,2rem)]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          {/* Left: Contact */}
           <div className="space-y-4">
-            <div className="text-2xl font-bold text-foreground">
-              <span className="text-primary">Braiin</span>It
+            <h3 className="text-xs uppercase tracking-widest text-muted-foreground leading-none">
+              Contact
+            </h3>
+            <ul className="mt-3 space-y-2">
+              <li>
+                <a
+                  href="https://mail.google.com/mail/?view=cm&to=hello@braiinit.com&su=BraiinIt%20Service%20Request&body=Hi%0A%0AI%20am%20reaching%20out%20from%20the%20BraiinIt%20website"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-base hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded leading-tight"
+                >
+                  hello@braiinit.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/918999890704?text=Hey%20BraiinIt!%20Let%27s%20discuss%20about%20an%20interesting%20AI%20Project."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-base hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded leading-tight">
+                  +918999890704
+                </a>
+              </li>
+            </ul>
+
+
+
+            <div className="flex flex-wrap gap-3">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="rounded-full h-10 px-4 text-sm leading-none"
+                  >
+                    Get In Touch
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="ml-2 h-4 w-4"
+                    >
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-2xl max-h-[100vh] overflow-y-auto">
+                  <ContactForm />
+                </DialogContent>
+              </Dialog>
             </div>
-            <p className="text-muted-foreground">
-              Building Smarter Solutions for Smarter Businesses.
-            </p>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="outline">
-                  Get In Touch
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-                <ContactForm />
-              </DialogContent>
-            </Dialog>
           </div>
 
-          {/* Services */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground">Services</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-smooth">AI Strategy</a></li>
-              <li><a href="#" className="hover:text-primary transition-smooth">Team Training</a></li>
-              <li><a href="#" className="hover:text-primary transition-smooth">Custom Development</a></li>
-              <li><a href="#" className="hover:text-primary transition-smooth">Process Automation</a></li>
-            </ul>
+          {/* Center: Legal (desktop) */}
+          <div className="hidden md:flex items-end justify-center">
+            <nav className="flex items-center gap-6 text-sm text-muted-foreground leading-tight">
+              <a
+                href="/terms"
+                className="hover:text-primary focus-visible:ring-2 focus-visible:ring-primary rounded"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Terms & Conditions
+              </a>
+              <a
+                href="/privacy"
+                className="hover:text-primary focus-visible:ring-2 focus-visible:ring-primary rounded"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy Policy
+              </a>
+            </nav>
           </div>
 
-          {/* Industries */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground">Industries</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-smooth">SaaS & Technology</a></li>
-              <li><a href="#" className="hover:text-primary transition-smooth">Healthcare</a></li>
-              <li><a href="#" className="hover:text-primary transition-smooth">Financial Services</a></li>
-              <li><a href="#" className="hover:text-primary transition-smooth">Manufacturing</a></li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground">Resources</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-smooth">Case Studies</a></li>
-              <li><a href="#" className="hover:text-primary transition-smooth">AI Insights</a></li>
-              <li><a href="#" className="hover:text-primary transition-smooth">Whitepapers</a></li>
-              <li><a href="#" className="hover:text-primary transition-smooth">YouTube Content</a></li>
+          {/* Right: Follow */}
+          <div className="text-right md:justify-self-end">
+            <h3 className="text-xs uppercase tracking-widest text-muted-foreground leading-none">
+              Follow
+            </h3>
+            <ul className="mt-3 space-y-2">
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/braiinit/"
+                  className="hover:text-primary focus-visible:ring-2 focus-visible:ring-primary rounded leading-tight"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/@lets-braiinit" 
+                className="hover:text-primary focus-visible:ring-2 focus-visible:ring-primary rounded leading-tight">
+                  YouTube
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/lets_braiinit" 
+                className="hover:text-primary focus-visible:ring-2 focus-visible:ring-primary rounded leading-tight">
+                  Instagram
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="text-sm text-muted-foreground">
-            © 2025 BraiinIt. All rights reserved.
-          </div>
-          <div className="flex space-x-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-smooth">Privacy Policy</a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-smooth">Terms of Service</a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-smooth">Cookie Policy</a>
-          </div>
+        {/* Legal (mobile) */}
+        <div className="mt-8 md:hidden flex justify-center">
+          <nav className="flex items-center gap-6 text-sm text-muted-foreground leading-tight">
+            <a
+              href="/terms"
+              className="hover:text-primary focus-visible:ring-2 focus-visible:ring-primary rounded"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Terms & Conditions
+            </a>
+            <a
+              href="/privacy"
+              className="hover:text-primary focus-visible:ring-2 focus-visible:ring-primary rounded"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Privacy Policy
+            </a>
+          </nav>
         </div>
       </div>
     </footer>

@@ -9,9 +9,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { Header } from "./components/Header";
 import { HeroSection } from "./components/HeroSection";
-import { ProcessSection } from "./components/ProcessSection";
+import { AboutSection } from "./components/AboutSection";
 import { WorkSection } from "./components/WorkSection";
 import { Footer } from "./components/Footer";
+import { TermsConditions } from './components/TermsConditions';
+import { PrivacyPolicy } from './components/PrivacyPolicy';
 
 const queryClient = new QueryClient();
 
@@ -44,11 +46,13 @@ const App = () => {
             <Route path="/" element={
               <>
                 <HeroSection />
-                <ProcessSection />
+                <AboutSection />
                 <WorkSection />
               </>
             } />
             <Route path="*" element={<></>} />
+            <Route path="/terms" element={<TermsConditions />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
           </Routes>
           <Footer />
           <Toaster />
